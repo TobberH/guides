@@ -68,7 +68,7 @@ the systemd service.
 ` [Interface]`\
 ` Address = 10.0.0.2/32`\
 ` PrivateKey = <contents-of-CLIENT-privatekey>`\
-` DNS = 1.1.1.1`\
+` #DNS = 1.1.1.1 # Only if you need an alternate DNS when connected`\
 ` `\
 ` [Peer]`\
 ` PublicKey = <contents-of-SERVER-publickey>`\
