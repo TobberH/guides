@@ -34,16 +34,16 @@ command below.
 #### Generate server config:
 
 ` # nano /etc/wireguard/wg0.conf`
-` `
-` [Interface]`
-` PrivateKey = <contents-of-SERVER-privatekey>`
-` Address = 10.0.0.1/24`
-` PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE`
-` PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE`
-` ListenPort = 51820`
-` `
-` [Peer]`
-` PublicKey = <contents-of-CLIENT-publickey>`
+
+` [Interface]`\
+` PrivateKey = <contents-of-SERVER-privatekey>`\
+` Address = 10.0.0.1/24`\
+` PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE`\
+` PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE`\
+` ListenPort = 51820`\
+` `\
+` [Peer]`\
+` PublicKey = <contents-of-CLIENT-publickey>`\
 ` AllowedIPs = 10.0.0.2/32`
 
 On router forward the listen port as UDP
@@ -64,16 +64,16 @@ the systemd service.
 ##### Client configuration:
 
 ` $ sudo nano /etc/wireguard/wg0.conf`
-` `
-` [Interface]`
-` Address = 10.0.0.2/32`
-` PrivateKey = <contents-of-CLIENT-privatekey>`
-` DNS = 1.1.1.1`
-` `
-` [Peer]`
-` PublicKey = <contents-of-SERVER-publickey>`
-` Endpoint = <server-public-ip>:51820`
-` #AllowedIPs = 0.0.0.0/0, ::/0  # Use for all traffic`
+
+` [Interface]`\
+` Address = 10.0.0.2/32`\
+` PrivateKey = <contents-of-CLIENT-privatekey>`\
+` DNS = 1.1.1.1`\
+` `\
+` [Peer]`\
+` PublicKey = <contents-of-SERVER-publickey>`\
+` Endpoint = <server-public-ip>:51820`\
+` #AllowedIPs = 0.0.0.0/0, ::/0  # Use for all traffic`\
 ` AllowedIPs = 10.0.0.0/24       # Only use for wireguard peers`
 
 Start and enable service just like the server.
