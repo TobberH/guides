@@ -17,7 +17,7 @@ the line you uncommented:
 
 ` $ sudo sysctl -p`
 
-Generating private and public keys (as root):
+#### Generating private and public keys (as root):
 
 ` # cd /etc/wireguard`
 
@@ -62,6 +62,8 @@ the systemd service.
 ` # systemctl enable wg-quick@wg0`
 
 ##### Client configuration:
+
+Generate keys like on the server.
 
 ` $ sudo nano /etc/wireguard/wg0.conf`
 
